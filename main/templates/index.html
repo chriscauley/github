@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% load thumbnail %}
 
 {% block content %}
-<div class="home-wrapper">
-Some Webpage!
-</div>
+<form method="POST">
+  {% csrf_token %}
+  {% include "_form.html" %}
+  <input type="submit">
+</form>
 {% endblock %}

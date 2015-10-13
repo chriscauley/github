@@ -3,6 +3,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = '8d&j_3zjc^4!)+3_s0!waya72jhx8j=3iryhexz=uq)9t)vbcs'
 
+GITHUB_KEY = '7ca56927e2d453b5bf74'
+GITHUB_SECRET = '69b648744175a64f50827f2bfc3e68d2d4326e22'
+
 DEBUG = TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []

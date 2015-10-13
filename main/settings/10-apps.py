@@ -10,15 +10,14 @@ INSTALLED_APPS = (
   'django.contrib.staticfiles',
 
   'compressor',
-  'crop_override',
-  'sorl.thumbnail',
 
+  'github',
 )
 
 # Django Suit configuration example
 SUIT_CONFIG = {
   # header
-  'ADMIN_NAME': 'Modifi3d',
+  'ADMIN_NAME': 'homer',
   # 'HEADER_DATE_FORMAT': 'l, j. F Y',
   # 'HEADER_TIME_FORMAT': 'H:i',
 

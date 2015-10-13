@@ -36,6 +36,11 @@
         {% block header %}<h1>{% block header_content %}{% endblock %}</h1>{% endblock %}
       </header>
       <div id="content">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          {{ message|safe }}
+        </div>
+        {% endfor %}
 	      {% block content %}
 	      <div id="main">{% block main %}{% endblock %}</div>
 	      <div id="side">{% block side %}{% endblock %}</div>

@@ -1,7 +1,7 @@
 Homer Coding Test
 =======
 
-Run the folloging bash commands:
+Run the following bash commands:
 
 ```
 pip install -r requirements.txt

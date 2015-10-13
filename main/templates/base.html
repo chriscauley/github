@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
 
     <!--[if IE 7]>
       <link rel="stylesheet" type="text/css" href="/static/design/ie7.css"/>
@@ -28,22 +26,14 @@
 
   <body>
     <div id="wrapper">
-      <header>
-        {% block nav %}{% include "_nav.html" %}{% endblock %}
-        {% block header %}<h1>{% block header_content %}{% endblock %}</h1>{% endblock %}
-      </header>
       <div id="content" class="container">
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
           {{ message|safe }}
         </div>
         {% endfor %}
-	      {% block content %}
-	      <div id="main">{% block main %}{% endblock %}</div>
-	      <div id="side">{% block side %}{% endblock %}</div>
-	      {% endblock %}
+	      {% block content %}{% endblock %}
       </div>
-      <footer id="footer">{% block footer %}{% include "_footer.html" %}{% endblock %}</footer>
     </div>
   </body>
 </html>

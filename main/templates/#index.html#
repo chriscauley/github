@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+<form method="POST">
+  {% csrf_token %}
+
+</form>
+{% endblock %}

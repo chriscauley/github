@@ -2,10 +2,46 @@
 {% load compress %}
 
 {% block content %}
-<form method="POST">
-  {% csrf_token %}
-  {% include "_form.html" %}
-  <input type="submit">
+<form method="GET">
+  <table class="table table-striped">
+    {% for error in form.non_field_errors %}
+    <tr>
+      <td colspan="3"><div class="alert alert-danger">{{ error }}</div></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      {% for field in form %}
+      <td>
+        <div class="form-group {% if field.errors %}has-error{% endif %}">
+          {{ field.label_tag }}
+          {{ field }}
+          {% for error in field.errors %}
+          <div class="alert alert-danger">{{ error }}</div>
+          {% endfor %}
+          <div class="help-block">
+            {% if field.help_text %}
+            {{ field.help_text|safe|linebreaksbr }}
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </td>
+      <td><input type="submit"></td>
+    </tr>
+    <tr>
+      {% for repo in current_repos %}
+      <td>
+        {{ repo }} {{ repo.stars }}&#x2605; {{ repo.watchers }}W {{ repo.forks }}F
+      </td>
+      {% empty %}
+      <td></td><td></td>
+      {% endfor %}
+      <td>
+        <a href="{% url "update_all" %}?next={{ request.path }}&qs={{ request.GET.urlencode|urlencode }}" class="btn">
+          Update all repos</a>
+      </td>
+    </tr>
+  </table>
 </form>
 <repository-viewer></repository-viewer>
 {% endblock %}

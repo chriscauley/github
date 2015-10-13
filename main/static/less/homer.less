@@ -11,12 +11,13 @@
 
 repository-viewer {
   display: block;
-  margin-top: 30px;
+  margin: 30px 0;
   .github-plot {
     background: white;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
     height: 400px;
+    margin: 20px auto 0;
     position: relative;
     width: 600px;
     &:before {
@@ -33,21 +34,28 @@ repository-viewer {
     }
   }
   .dot {
-    border-radius: 100%;
+    border-radius: 50%;
     position: absolute;
-    &.c0 { background: #000 }
-    &.c1 { background: #800 }
-    &.c2 { background: #080 }
-    &.c3 { background: #008 }
-    &.c4 { background: #088 }
-    &.c5 { background: #808 }
-    &.c6 { background: #880 }
-    &.c7 { background: #888 }
     .makeSize(0);
     .makeSize(1);
     .makeSize(2);
     .makeSize(3);
     .makeSize(4);
     .makeSize(5);
+  }
+  .c0 { background: #000 }
+  .c1 { background: #a00 }
+  .c2 { background: #0a0 }
+  .c3 { background: #00a }
+  .c4 { background: #0aa }
+  .c5 { background: #a0a }
+  .c6 { background: #aa0 }
+  .c7 { background: #888 }
+  .udot {
+    border-radius: 50%;
+    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+    width: 20px;
   }
 }

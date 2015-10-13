@@ -18,7 +18,7 @@ class Repository(models.Model):
     request = requests.get(url)
     data = json.loads(request.text)
     self.stars = data['stargazers_count']
-    self.watchers = data['watchers_count']
+    self.watchers = data['subscribers_count']
     self.forks = data['forks']
   def save(self,*args,**kwargs):
     if not self.pk:

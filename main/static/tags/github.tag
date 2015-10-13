@@ -1,11 +1,18 @@
 <repository-viewer>
   <div class="row">
     <div class="col-sm-4">
+      <p>Click any of these to toggle them from the chart to the right</p>
       <div each={ user_list } class="btn btn-block btn-{ checked?'success':'default' }" onclick={ parent.toggle }>
+        <span class="udot c{ colorClass }"></span>
         { username } ({ repositories.length })
       </div>
     </div>
     <div class="col-sm-8">
+      <center>
+        Y axis is stars, X axis is watchers, size is forks.
+        <br>
+        Hover over dot for details.
+      </center>
       <div class="github-plot" data-max_stars={ max_stars } data-max_watchers={ max_watchers }>
         <div each={ user_list } if={ checked }>
           <div class="dot { className }" each={ repositories } style="bottom: { b }%; left: { l }%;"
@@ -20,9 +27,14 @@
   this.opts.repositories.forEach(function(repo) {
     var username = repo.username;
     if (!that._users[username]) {
-      that._users[username] = {username: username, repositories: [], checked: true}
-      that.user_list.push(that._users[username]);
       that._usernames.push(username)
+      that._users[username] = {
+        username: username,
+        repositories: [],
+        checked: true,
+        colorClass: that._usernames.indexOf(username)%8,
+      }
+      that.user_list.push(that._users[username]);
     }
     that._users[username].repositories.push(repo);
   });
@@ -39,7 +51,6 @@
 
     // get each value for each array
     this.opts.repositories.forEach(function(repo) {
-      console.log(repo)
       if (!that._users[repo.username].checked) { return }
       fields.forEach(function (f) { that[f].push(repo[f]); });
     });
@@ -51,8 +62,8 @@
 
     // and now the css for each repo
     this.opts.repositories.forEach(function(repo) {
-      repo.l = repo.stars/that.max_stars*100;
-      repo.b = repo.watchers/that.max_watchers*100;
+      repo.b = repo.stars/that.max_stars*100;
+      repo.l = repo.watchers/that.max_watchers*100;
       if (repo.forks > 100) { repo.className = "s5" }
       else if (repo.forks > 50) { repo.className = "s4" }
       else if (repo.forks > 20) { repo.className = "s3" }

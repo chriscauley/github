@@ -1,0 +1,102 @@
+repository-viewer {
+  display: block;
+  margin: 30px 0;
+}
+repository-viewer .github-plot {
+  background: white;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  height: 400px;
+  margin: 20px auto 0;
+  position: relative;
+  width: 600px;
+}
+repository-viewer .github-plot:before {
+  content: attr(data-max_stars);
+  position: absolute;
+  right: 100%;
+  top: 0;
+}
+repository-viewer .github-plot:after {
+  content: attr(data-max_watchers);
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+repository-viewer .dot {
+  border-radius: 50%;
+  position: absolute;
+}
+repository-viewer .dot.s0 {
+  height: 8px;
+  margin-bottom: -4px;
+  margin-left: -4px;
+  width: 8px;
+  z-index: 5;
+}
+repository-viewer .dot.s1 {
+  height: 16px;
+  margin-bottom: -8px;
+  margin-left: -8px;
+  width: 16px;
+  z-index: 4;
+}
+repository-viewer .dot.s2 {
+  height: 24px;
+  margin-bottom: -12px;
+  margin-left: -12px;
+  width: 24px;
+  z-index: 3;
+}
+repository-viewer .dot.s3 {
+  height: 32px;
+  margin-bottom: -16px;
+  margin-left: -16px;
+  width: 32px;
+  z-index: 2;
+}
+repository-viewer .dot.s4 {
+  height: 40px;
+  margin-bottom: -20px;
+  margin-left: -20px;
+  width: 40px;
+  z-index: 1;
+}
+repository-viewer .dot.s5 {
+  height: 48px;
+  margin-bottom: -24px;
+  margin-left: -24px;
+  width: 48px;
+  z-index: 0;
+}
+repository-viewer .c0 {
+  background: #000000;
+}
+repository-viewer .c1 {
+  background: #aa0000;
+}
+repository-viewer .c2 {
+  background: #00aa00;
+}
+repository-viewer .c3 {
+  background: #0000aa;
+}
+repository-viewer .c4 {
+  background: #00aaaa;
+}
+repository-viewer .c5 {
+  background: #aa00aa;
+}
+repository-viewer .c6 {
+  background: #aaaa00;
+}
+repository-viewer .c7 {
+  background: #888888;
+}
+repository-viewer .udot {
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 20px;
+}

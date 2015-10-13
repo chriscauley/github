@@ -24,4 +24,4 @@ Important Files
 
 * `main/static/github.tag` - Riot tag `<repository-viewer>`, which generates the buttons and the graph
 
-* `main/static/less/homer.less` - Styling for the graph (included here as `main/static/less/homer.css` because less.js is hard to install on some operating systems)
+* `main/static/less/homer.less` - Styling for the graph (there's also a pre-compiled version in `homer.css` because less.js is hard to install on some operating systems)

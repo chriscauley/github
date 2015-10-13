@@ -24,3 +24,5 @@ class Repository(models.Model):
     if not self.pk:
       self.update()
     super(Repository,self).save(*args,**kwargs)
+  class Meta:
+    unique_together = ('username','reponame')

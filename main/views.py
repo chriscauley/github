@@ -16,7 +16,7 @@ def home(request):
   fields = ("username","reponame","stars","watchers","forks")
   values = {
     'form': form,
-    'repos': json.dumps(list(Repository.objects.all().values_list(*fields))),
+    'repositories': json.dumps(list(Repository.objects.all().values(*fields))),
   }
   return TemplateResponse(request,"index.html",values)
 

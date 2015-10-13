@@ -10,11 +10,8 @@
     <meta name="application-name" content="">
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}less/bs.css" />
 
-    {% compress css %}
-    <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}less/base.less" />
-    {% endcompress %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
 
@@ -35,7 +32,7 @@
         {% block nav %}{% include "_nav.html" %}{% endblock %}
         {% block header %}<h1>{% block header_content %}{% endblock %}</h1>{% endblock %}
       </header>
-      <div id="content">
+      <div id="content" class="container">
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
           {{ message|safe }}

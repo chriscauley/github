@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load compress %}
 
 {% block content %}
 <form method="POST">
@@ -6,4 +7,18 @@
   {% include "_form.html" %}
   <input type="submit">
 </form>
+<repository-viewer></repository-viewer>
+{% endblock %}
+
+{% block extrahead %}
+{% compress css %}
+<link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}less/homer.less" />
+{% endcompress %}
+
+<script src="https://cdn.jsdelivr.net/g/riot@2.2(riot.min.js+compiler.min.js)"></script>
+<script src="{{ STATIC_URL }}tags/github.tag" type="riot/tag"></script>
+<script>
+  var REPOS = {{ repositories|safe }};
+  riot.mount("repository-viewer",{repositories: REPOS});
+</script>
 {% endblock %}
